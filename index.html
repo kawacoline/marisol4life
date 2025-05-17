@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marisol Meléndez - Bienestar y Vitalidad con 4Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fdfdfd; /* Un fondo muy claro */
+        }
+        header {
+            background-color: #ffffff;
+            padding: 1em 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100; /* Para que esté sobre otros elementos al hacer scroll */
+        }
+        nav a {
+            margin: 0 18px;
+            text-decoration: none;
+            color: #005695; /* Azul corporativo 4Life */
+            font-weight: 700;
+            font-size: 1.05em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            color: #ff7f00; /* Naranja para hover/activo */
+            text-decoration: underline;
+        }
+
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1999&q=80'); /* Imagen de ejemplo, reemplazar */
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed; /* Efecto parallax sutil */
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before { /* Overlay oscuro para legibilidad del texto */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            position: relative; /* Para que esté sobre el overlay */
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+            font-weight: 900;
+            color: #fff;
+        }
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero .cta-button {
+            background-color: #ff7f00;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-size: 1.25em;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .hero .cta-button:hover {
+            background-color: #e67300;
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 45px;
+            color: #005695;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .section h2::after { /* Línea decorativa bajo el título */
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #ff7f00;
+            border-radius: 2px;
+        }
+        .section p.subtitle {
+            max-width: 750px;
+            margin: 0 auto 30px auto;
+            font-size: 1.15em;
+            color: #555;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid responsivo */
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .product-card img {
+            max-width: 100%;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .product-card h3 {
+            font-size: 1.25em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #222;
+            font-weight: 700;
+            min-height: 45px;
+        }
+        .product-card .product-description {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            color: #666;
+            min-height: 50px;
+            line-height: 1.5;
+        }
+        .product-card .price-container {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        .product-card .price-final {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #007bff; /* Azul para el precio final */
+            margin-right: 10px;
+        }
+        .product-card .price-original {
+            font-size: 1em;
+            color: #777;
+            text-decoration: line-through;
+        }
+        .product-card .buy-button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: block; /* Para que ocupe todo el ancho */
+            text-align: center;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: auto;
+        }
+        .product-card .buy-button:hover {
+            background-color: #218838;
+            transform: scale(1.03);
+        }
+
+        .chatbot-section { padding: 50px 0; background-color: #f4f8fc; }
+        .chatbot-section iframe {
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 600px; /* Ajustado para mejor visualización */
+        }
+
+        footer {
+            background-color: #2c3e50; /* Azul oscuro para el footer */
+            color: #ecf0f1; /* Texto más claro */
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.95em;
+        }
+        footer p { margin: 8px 0; }
+        footer a { color: #3498db; /* Azul más brillante para enlaces */ text-decoration: none; }
+        footer a:hover { text-decoration: underline; color: #5dade2; }
+        .footer-disclaimer { font-size: 0.8em; color: #bdc3c7; margin-top: 20px; padding: 0 10%;}
+
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.12);
+            background-color: #1EBE57;
+        }
+        .whatsapp-float img { width: 38px; height: 38px; }
+        .whatsapp-tooltip {
+            visibility: hidden;
+            width: 180px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 115%;
+            right: 50%;
+            transform: translateX(50%);
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            font-size: 0.85em;
+            font-weight: 400;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .whatsapp-float:hover .whatsapp-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .products-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.2em; }
+        }
+        @media (max-width: 768px) {
+            nav a { margin: 0 10px; font-size: 1em;}
+            .hero { padding: 80px 20px; }
+            .hero h1 { font-size: 2.2em; }
+            .hero p { font-size: 1.1em; }
+            .section h2 { font-size: 2em; }
+            .products-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;}
+            .product-card { padding: 20px; }
+            .product-card img { height: 180px; }
+            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; font-size: 28px;}
+            .whatsapp-float img { width: 30px; height: 30px; }
+        }
+         @media (max-width: 480px) {
+            .products-grid { grid-template-columns: 1fr; } /* Una columna en móviles muy pequeños */
+            nav a { display: block; margin: 10px 0; } /* Menú apilable si es necesario */
+            .hero h1 { font-size: 1.8em; }
+            .hero p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#todos-los-productos">Productos</a>
+            <a href="#sobre-4life">Sobre 4Life</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Transforma tu Bienestar con 4Life junto a Marisol Meléndez</h1>
+            <p>Descubre productos científicamente avanzados para tu sistema inmunitario y vitalidad. ¡Comienza tu viaje hacia una vida más saludable!</p>
+            <a href="#todos-los-productos" class="cta-button">Ver Todos los Productos</a>
+        </div>
+    </section>
+
+    <section id="sobre-marisol" class="section">
+        <h2>¿Por Qué Elegir 4Life con Marisol Meléndez?</h2>
+        <p class="subtitle">
+            ¡Hola! Soy Marisol Meléndez, y mi pasión es guiarte hacia un bienestar integral. Con 4Life, he descubierto el poder de la ciencia para transformar la salud. Mi compromiso es brindarte asesoría personalizada para que encuentres los productos perfectos para ti y tu familia. ¡Juntos alcanzaremos tus metas de vitalidad!
+        </p>
+    </section>
+
+    <section id="todos-los-productos" class="section" style="background-color: #edf2f7;">
+        <h2>Nuestro Catálogo Completo de Productos 4Life</h2>
+        <p class="subtitle">Explora nuestra gama completa de soluciones de bienestar. Haz clic en "Comprar" para adquirirlo directamente en mi tienda oficial 4Life.</p>
+        <div class="products-grid">
+
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/TFPlus_060524US.jpg?width=200&mode=crop&quality=80" alt="Transfer Factor Plus">
+                <h3>Transfer Factor Plus</h3>
+                <div class="price-container">
+                    <span class="price-final">$70.00</span>
+                    <span class="price-original">$82.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-plus-tri-factor/89" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-RiteStart-Women_1000px_20220117150541.jpg?width=200&mode=crop&quality=80" alt="RiteStart Mujer">
+                <h3>RiteStart Mujer</h3>
+                <div class="price-container">
+                    <span class="price-final">$84.00</span>
+                    <span class="price-original">$99.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/ritestart-women-new/1228" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/TriFactor.jpg?width=200&mode=crop&quality=80" alt="Transfer Factor Tri-Factor">
+                <h3>Transfer Factor Tri-Factor</h3>
+                <div class="price-container">
+                    <span class="price-final">$53.00</span>
+                    <span class="price-original">$62.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-tri-factor/95" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Cardio_US_1000px.jpg?width=200&mode=crop&quality=80" alt="Cardio">
+                <h3>Cardio</h3>
+                <div class="price-container">
+                    <span class="price-final">$68.00</span>
+                    <span class="price-original">$80.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-cardio/77" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-RiteStart-Men_1000px_20220117145736.jpg?width=200&mode=crop&quality=80" alt="RiteStart Hombre">
+                <h3>RiteStart Hombre</h3>
+                <div class="price-container">
+                    <span class="price-final">$84.00</span>
+                    <span class="price-original">$99.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/ritestart-men-new/1227" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/RVStx_20210825091753.jpg?width=200&mode=crop&quality=80" alt="RioVida Stix">
+                <h3>RioVida Stix</h3>
+                <div class="price-container">
+                    <span class="price-final">$34.00</span>
+                    <span class="price-original">$40.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-riovida-stix/102" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Glucoach_US.jpg?width=200&mode=crop&quality=80" alt="GluCoach">
+                <h3>GluCoach</h3>
+                <div class="price-container">
+                    <span class="price-final">$68.00</span>
+                    <span class="price-original">$80.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-glucoach/81" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Classic_060524US.jpg?width=200&mode=crop&quality=80" alt="Transfer Factor Classic">
+                <h3>Transfer Factor Classic</h3>
+                <div class="price-container">
+                    <span class="price-final">$48.00</span>
+                    <span class="price-original">$57.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-classic/79" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 9 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/RioVida_single.jpg?width=200&mode=crop&quality=80" alt="RioVida">
+                <h3>RioVida</h3>
+                <div class="price-container">
+                    <span class="price-final">$41.00</span>
+                    <span class="price-original">$48.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-riovida/93" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 10 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Recall_060524US.jpg?width=200&mode=crop&quality=80" alt="ReCall">
+                <h3>ReCall</h3>
+                <div class="price-container">
+                    <span class="price-final">$60.00</span>
+                    <span class="price-original">$70.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-recall/90" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 11 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Renuvo_US.png?width=200&mode=crop&quality=80" alt="Renuvo">
+                <h3>Renuvo</h3>
+                <div class="price-container">
+                    <span class="price-final">$60.00</span>
+                    <span class="price-original">$70.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-renuvo-new-label/423" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 12 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Project_AgePro_202404_Shopping_Page_Image.jpg?width=200&mode=crop&quality=80" alt="AgePro">
+                <h3>AgePro</h3>
+                <div class="price-container">
+                    <span class="price-final">$64.00</span>
+                    <span class="price-original">$75.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/agepro/3718" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 13 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/KBU_US.jpg?width=200&mode=crop&quality=80" alt="KBU">
+                <h3>KBU</h3>
+                <div class="price-container">
+                    <span class="price-final">$57.00</span>
+                    <span class="price-original">$67.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-kbu/84" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 14 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/preo_biotics.jpg?width=200&mode=crop&quality=80" alt="Pre/O Biotics">
+                <h3>Pre/O Biotics</h3>
+                <div class="price-container">
+                    <span class="price-final">$50.00</span>
+                    <span class="price-original">$59.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/preo-biotics/1172" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 15 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Energy_Go_Stix_Berry_Box_US_1000px.jpg?width=200&mode=crop&quality=80" alt="Energy Go Stix Moras">
+                <h3>Energy Go Stix Moras</h3>
+                <div class="price-container">
+                    <span class="price-final">$53.00</span>
+                    <span class="price-original">$62.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/energy-berry/1629" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 16 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/MalePro.jpg?width=200&mode=crop&quality=80" alt="MalePro">
+                <h3>MalePro</h3>
+                <div class="price-container">
+                    <span class="price-final">$65.00</span>
+                    <span class="price-original">$76.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-malepro/87" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 17 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Collagen.jpg?width=200&mode=crop&quality=80" alt="Transfer Factor Colágeno">
+                <h3>Transfer Factor Colágeno</h3>
+                <div class="price-container">
+                    <span class="price-final">$43.00</span>
+                    <span class="price-original">$51.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-collagen/1533" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 18 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/BelleVie_060524US.jpg?width=200&mode=crop&quality=80" alt="Belle Vie">
+                <h3>Belle Vie</h3>
+                <div class="price-container">
+                    <span class="price-final">$56.00</span>
+                    <span class="price-original">$66.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-belle-vie/75" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 19 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Gold_Factor.png?width=200&mode=crop&quality=80" alt="Gold Factor">
+                <h3>Gold Factor</h3>
+                <div class="price-container">
+                    <span class="price-final">$72.00</span>
+                    <span class="price-original">$85.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/4life-gold-factor/2118" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 20 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Vista.jpg?width=200&mode=crop&quality=80" alt="Vista">
+                <h3>Vista</h3>
+                <div class="price-container">
+                    <span class="price-final">$56.00</span>
+                    <span class="price-original">$66.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-vista/96" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 21 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-Pro-TF-Vanilla-1000px_20220301130626.jpg?width=200&mode=crop&quality=80" alt="Pro-TF Vainilla">
+                <h3>Pro-TF Vainilla</h3>
+                <div class="price-container">
+                    <span class="price-final">$62.00</span>
+                    <span class="price-original">$73.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/pro-tf-protein/361" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 22 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/SuperDetox_060524US.jpg?width=200&mode=crop&quality=80" alt="Super Detox">
+                <h3>Super Detox</h3>
+                <div class="price-container">
+                    <span class="price-final">$31.00</span>
+                    <span class="price-original">$37.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/digest4life-super-detox/1223" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 23 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/tf-chewable_20210816151044.jpg?width=200&mode=crop&quality=80" alt="Transfer Factor Masticable">
+                <h3>Transfer Factor Masticable</h3>
+                <div class="price-container">
+                    <span class="price-final">$54.00</span>
+                    <span class="price-original">$63.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-chewable/78" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 24 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/digestive_enzymes.jpg?width=200&mode=crop&quality=80" alt="Digestive Enzymes">
+                <h3>Digestive Enzymes</h3>
+                <div class="price-container">
+                    <span class="price-final">$37.00</span>
+                    <span class="price-original">$44.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/digest4life-digestive-enzymes/1221" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 25 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Essential-Fatty-Acid_20210915103921.png?width=200&mode=crop&quality=80" alt="Essential Fatty Acid Complex">
+                <h3>Essential Fatty Acid Complex</h3>
+                <div class="price-container">
+                    <span class="price-final">$26.00</span>
+                    <span class="price-original">$31.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/bioefa-with-cla/3" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 26 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Lung_US.jpg?width=200&mode=crop&quality=80" alt="4Life Transfer Factor Lung">
+                <h3>4Life Transfer Factor Lung</h3>
+                <div class="price-container">
+                    <span class="price-final">$48.00</span>
+                    <span class="price-original">$57.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/4life-transfer-factor-lung/2360" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 27 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Glutamine_US.jpg?width=200&mode=crop&quality=80" alt="Glutamine Prime">
+                <h3>Glutamine Prime</h3>
+                <div class="price-container">
+                    <span class="price-final">$37.00</span>
+                    <span class="price-original">$44.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/nano-factor-glutamine-prime/48" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 28 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Immune_Boost_Image.png?width=200&mode=crop&quality=80" alt="Immune Boost">
+                <h3>Immune Boost</h3>
+                <div class="price-container">
+                    <span class="price-final">$24.00</span>
+                    <span class="price-original">$28.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/immune-boost/3034" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 29 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Reflexion.jpg?width=200&mode=crop&quality=80" alt="Reflexion">
+                <h3>Reflexion</h3>
+                <div class="price-container">
+                    <span class="price-final">$56.00</span>
+                    <span class="price-original">$66.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/reflexion/810" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 30 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/RiovidaBurst_20210825091901.jpg?width=200&mode=crop&quality=80" alt="RioVida Burst">
+                <h3>RioVida Burst</h3>
+                <div class="price-container">
+                    <span class="price-final">$42.00</span>
+                    <span class="price-original">$49.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-riovida-burst/94" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 31 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-Pro-TF-Choc-1000px_20220301125754.jpg?width=200&mode=crop&quality=80" alt="Pro-TF Chocolate">
+                <h3>Pro-TF Chocolate</h3>
+                <div class="price-container">
+                    <span class="price-final">$62.00</span>
+                    <span class="price-original">$73.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/pro-tfr-chocolate/662" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 32 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/ritestart_kidsteens_1000x_20210923090528.jpg?width=200&mode=crop&quality=80" alt="RiteStart®Niños y Adolescentes">
+                <h3>RiteStart®Niños y Adolescentes</h3>
+                <div class="price-container">
+                    <span class="price-final">$53.00</span>
+                    <span class="price-original">$62.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/ritestart-kids-and-teens/2427" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 33 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Energy_Go_Stix_Orange_Citrus_Box_US_1000px.jpg?width=200&mode=crop&quality=80" alt="Energy Go Stix Naranja Cítrica">
+                <h3>Energy Go Stix Naranja Cítrica</h3>
+                <div class="price-container">
+                    <span class="price-final">$53.00</span>
+                    <span class="price-original">$62.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/energy-go-stix-orange-citrus/615" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 34 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/SleepRite_US_20240709121050.jpg?width=200&mode=crop&quality=80" alt="SleepRite">
+                <h3>SleepRite</h3>
+                <div class="price-container">
+                    <span class="price-final">$36.00</span>
+                    <span class="price-original">$42.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/sleeprite/3035" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 35 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/d4l_reset_system.png?width=200&mode=crop&quality=80" alt="Sistema de Restauración Digest4Life">
+                <h3>Sistema de Restauración Digest4Life</h3>
+                <div class="price-container">
+                    <span class="price-final">$292.00</span>
+                    <span class="price-original">$343.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/digest4life-reset-system/1185" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 36 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Flex4Life_US_20240709120534.jpg?width=200&mode=crop&quality=80" alt="Flex4Life (cápsulas)">
+                <h3>Flex4Life (cápsulas)</h3>
+                <div class="price-container">
+                    <span class="price-final">$39.00</span>
+                    <span class="price-original">$46.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/flex4life/35" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 37 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/NewRioVidaChews1000px_20211130112728.jpg?width=200&mode=crop&quality=80" alt="RioVida Chews">
+                <h3>RioVida Chews</h3>
+                <div class="price-container">
+                    <span class="price-final">$29.00</span>
+                    <span class="price-original">$34.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/riovida-chews/1809" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 38 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Nutrastart_Blue_Vanilla_US.jpeg?width=200&mode=crop&quality=80" alt="NutraStart Blue Vanilla">
+                <h3>NutraStart Blue Vanilla</h3>
+                <div class="price-container">
+                    <span class="price-final">$60.00</span>
+                    <span class="price-original">$70.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/nutrastart-blue-vanilla/3033" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 39 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Collagen_Type_1.jpg?width=200&mode=crop&quality=80" alt="Colágeno Tipo I">
+                <h3>Colágeno Tipo I</h3>
+                <div class="price-container">
+                    <span class="price-final">$43.00</span>
+                    <span class="price-original">$51.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/4life-transfer-factor-collagen-type-i/2409" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 40 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/fibre_system_plus_20231109094518.jpg?width=200&mode=crop&quality=80" alt="Fibre System Plus">
+                <h3>Fibre System Plus</h3>
+                <div class="price-container">
+                    <span class="price-final">$39.00</span>
+                    <span class="price-original">$46.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/digest4life-fibre-system-plus/1222" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 41 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/enummi_Toothpaste_US_1000px.jpg?width=200&mode=crop&quality=80" alt="Pasta Dental">
+                <h3>Pasta Dental</h3>
+                <div class="price-container">
+                    <span class="price-final">$13.00</span>
+                    <span class="price-original">$15.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/enummi-toothpaste/27" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 42 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/MusculoSkeletal_US_20240709121031.jpg?width=200&mode=crop&quality=80" alt="MusculoSkeletal Formula">
+                <h3>MusculoSkeletal Formula</h3>
+                <div class="price-container">
+                    <span class="price-final">$24.00</span>
+                    <span class="price-original">$28.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/musculoskeletal-formula/47" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 43 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/tea4flife.jpg?width=200&mode=crop&quality=80" alt="Tea4Life">
+                <h3>Tea4Life</h3>
+                <div class="price-container">
+                    <span class="price-final">$23.00</span>
+                    <span class="price-original">$27.50</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/digest4life-tea4life/1224" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 44 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-Burn-1000px_20210810094938.jpg?width=200&mode=crop&quality=80" alt="Burn">
+                <h3>Burn</h3>
+                <div class="price-container">
+                    <span class="price-final">$60.00</span>
+                    <span class="price-original">$71.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/burn/811" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 45 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New_Metabolite_1000px_20210901171932.jpg?width=200&mode=crop&quality=80" alt="Metabolite">
+                <h3>Metabolite</h3>
+                <div class="price-container">
+                    <span class="price-final">$39.00</span>
+                    <span class="price-original">$46.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/4life-transfer-factor-metabolitet/2002" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 46 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/_51A8597_20190619095154.jpg?width=200&mode=crop&quality=80" alt="Crema Humectante">
+                <h3>Crema Humectante</h3>
+                <div class="price-container">
+                    <span class="price-final">$29.00</span>
+                    <span class="price-original">$34.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/akwa-moisture-cream/1528" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 47 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Stress_Formula_060524US.jpg?width=200&mode=crop&quality=80" alt="Stress Formula">
+                <h3>Stress Formula</h3>
+                <div class="price-container">
+                    <span class="price-final">$26.00</span>
+                    <span class="price-original">$30.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/stress-formula/70" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 48 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/best_sellers_2.jpg?width=200&mode=crop&quality=80" alt="Paquete Inicio Acelerado—Productos Más Populares">
+                <h3>Paquete Inicio Acelerado—Productos Más Populares</h3>
+                <div class="price-container">
+                    <span class="price-final">$763.00</span>
+                    <span class="price-original">$898.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/fast-start-best-sellers-pack/2762" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 49 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Energy_Go_Stix_Tropical_Box_US_1000px.jpg?width=200&mode=crop&quality=80" alt="Energy Go Stix Tropical">
+                <h3>Energy Go Stix Tropical</h3>
+                <div class="price-container">
+                    <span class="price-final">$30.00</span>
+                    <span class="price-original">$35.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/energy-tropical/1627" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 50 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Energy_Go_Stix_Kiwi_Strawberry_Box_US_1000px.jpg?width=200&mode=crop&quality=80" alt="Energy Go Stix Kiwi y Fresa">
+                <h3>Energy Go Stix Kiwi y Fresa</h3>
+                <div class="price-container">
+                    <span class="price-final">$30.00</span>
+                    <span class="price-original">$35.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/energy-go-stix-kiwi-strawberry/1532" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 51 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/aloe_vera_stix.jpg?width=200&mode=crop&quality=80" alt="Aloe Vera Stix">
+                <h3>Aloe Vera Stix</h3>
+                <div class="price-container">
+                    <span class="price-final">$31.00</span>
+                    <span class="price-original">$36.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/aloe-vera-stix/2374" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 52 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/TransformMan_US_1000px_20211013160130.jpg?width=200&mode=crop&quality=80" alt="Hombre">
+                <h3>Hombre</h3>
+                <div class="price-container">
+                    <span class="price-final">$42.00</span>
+                    <span class="price-original">$49.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/man/805" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 53 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/prezoom_shop2.jpg?width=200&mode=crop&quality=80" alt="PreZoom">
+                <h3>PreZoom</h3>
+                <div class="price-container">
+                    <span class="price-final">$62.00</span>
+                    <span class="price-original">$73.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/prezoom/2587" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 54 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-enummi-Lotion-1000px_20210519163234.jpg?width=200&mode=crop&quality=80" alt="Loción Corporal Intensiva">
+                <h3>Loción Corporal Intensiva</h3>
+                <div class="price-container">
+                    <span class="price-final">$20.00</span>
+                    <span class="price-original">$23.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/enummi-intensive-body-lotion/20" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 55 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-FibroAMJ_20210812094100.png?width=200&mode=crop&quality=80" alt="Fibro AMJ Fórmula Diurna">
+                <h3>Fibro AMJ Fórmula Diurna</h3>
+                <div class="price-container">
+                    <span class="price-final">$29.00</span>
+                    <span class="price-original">$34.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/fibro-amj-day-time-formula/33" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 56 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/4Life-Rebrand-US-Market-202104_Products-TF-Immune-Spray-Mint-Photography.jpg?width=200&mode=crop&quality=80" alt="Immune Spray Menta">
+                <h3>Immune Spray Menta</h3>
+                <div class="price-container">
+                    <span class="price-final">$31.00</span>
+                    <span class="price-original">$37.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-immune-spray---mint/117" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 57 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/MenopauseSupport.jpg?width=200&mode=crop&quality=80" alt="Menopause Support Formula">
+                <h3>Menopause Support Formula</h3>
+                <div class="price-container">
+                    <span class="price-final">$35.00</span>
+                    <span class="price-original">$41.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/biogenistein/4" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 58 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Gurmar_US.jpg?width=200&mode=crop&quality=80" alt="Gurmar">
+                <h3>Gurmar</h3>
+                <div class="price-container">
+                    <span class="price-final">$23.00</span>
+                    <span class="price-original">$27.50</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/gurmar/38" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 59 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Cal-Mag-bottle_20210730081221.png?width=200&mode=crop&quality=80" alt="Cal-Mag Complex">
+                <h3>Cal-Mag Complex</h3>
+                <div class="price-container">
+                    <span class="price-final">$19.00</span>
+                    <span class="price-original">$22.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/cal-mag-complex/2336" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 60 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/akwaSystem_DaystarShade (1)_20201029133907.jpg?width=200&mode=crop&quality=80" alt="äKwä Sistema de Cuidado de la Piel">
+                <h3>äKwä Sistema de Cuidado de la Piel</h3>
+                <div class="price-container">
+                    <span class="price-final">$269.00</span>
+                    <span class="price-original">$317.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/akwa-skincare-system/1531" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 61 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-Multiplex-1000px_20210812095452.jpg?width=200&mode=crop&quality=80" alt="MultiPlex">
+                <h3>MultiPlex</h3>
+                <div class="price-container">
+                    <span class="price-final">$28.00</span>
+                    <span class="price-original">$33.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/multiplex/46" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 62 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Energy_Go_Stix_Pink_Lemonade_Box_1000px.jpg?width=200&mode=crop&quality=80" alt="Energy Go Stix Limonada rosa">
+                <h3>Energy Go Stix Limonada rosa</h3>
+                <div class="price-container">
+                    <span class="price-final">$53.00</span>
+                    <span class="price-original">$62.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/energy-pink-lemonade/1628" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 63 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/phytolax.jpg?width=200&mode=crop&quality=80" alt="PhytoLax">
+                <h3>PhytoLax</h3>
+                <div class="price-container">
+                    <span class="price-final">$24.00</span>
+                    <span class="price-original">$28.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/digest4life-phytolax/1225" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 64 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/_51A8610_20190619095405.jpg?width=200&mode=crop&quality=80" alt="Esencia de Vitaminas">
+                <h3>Esencia de Vitaminas</h3>
+                <div class="price-container">
+                    <span class="price-final">$41.00</span>
+                    <span class="price-original">$48.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/akwa-vitamin-essence/1526" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 65 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New_Immune_IQ_Starter_Pack_1000px_20210831080852.jpg?width=200&mode=crop&quality=80" alt="Paquete Básico Cociente Intelectual Inmunitario">
+                <h3>Paquete Básico Cociente Intelectual Inmunitario</h3>
+                <div class="price-container">
+                    <span class="price-final">$186.00</span>
+                    <span class="price-original">$219.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/immune-iq-starter-pack/1381" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 66 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/_51A8616_20190619095440.jpg?width=200&mode=crop&quality=80" alt="Limpiador de Aceite a Espuma">
+                <h3>Limpiador de Aceite a Espuma</h3>
+                <div class="price-container">
+                    <span class="price-final">$28.00</span>
+                    <span class="price-original">$33.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/akwa-oil-to-foam-cleanser/1523" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 67 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Transform_Woman_US.jpg?width=200&mode=crop&quality=80" alt="Mujer">
+                <h3>Mujer</h3>
+                <div class="price-container">
+                    <span class="price-final">$48.00</span>
+                    <span class="price-original">$56.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/woman/807" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 68 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/US_LifeC_RENDERING_20210520102840.jpg?width=200&mode=crop&quality=80" alt="Life C">
+                <h3>Life C</h3>
+                <div class="price-container">
+                    <span class="price-final">$20.00</span>
+                    <span class="price-original">$23.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/life-c/42" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 69 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-Protein-bar-1000px_20210709115532.jpg?width=200&mode=crop&quality=80" alt="4LifeTransform Protein Bar">
+                <h3>4LifeTransform Protein Bar</h3>
+                <div class="price-container">
+                    <span class="price-final">$39.00</span>
+                    <span class="price-original">$46.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/4lifetransform-protein-bar/2308" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 70 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/_51A8602_20190619095302.jpg?width=200&mode=crop&quality=80" alt="Crema de Ojos">
+                <h3>Crema de Ojos</h3>
+                <div class="price-container">
+                    <span class="price-final">$41.00</span>
+                    <span class="price-original">$48.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/akwa-eye-cream/1527" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 71 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Renewall_20220511132253.png?width=200&mode=crop&quality=80" alt="RenewAll">
+                <h3>RenewAll</h3>
+                <div class="price-container">
+                    <span class="price-final">$23.00</span>
+                    <span class="price-original">$27.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/renewall/3034" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 72 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Maintence-Pack_20210928122709.png?width=200&mode=crop&quality=80" alt="Paquete Respaldo para el Cociente Intelectual del Sistema Inmunitario">
+                <h3>Paquete Respaldo para el Cociente Intelectual del Sistema Inmunitario</h3>
+                <div class="price-container">
+                    <span class="price-final">$189.00</span>
+                    <span class="price-original">$222.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/immune-iq-maintenance-pack/1434" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 73 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/shaperite-image_20211118091606.png?width=200&mode=crop&quality=80" alt="ShapeRite®">
+                <h3>ShapeRite®</h3>
+                <div class="price-container">
+                    <span class="price-final">$37.00</span>
+                    <span class="price-original">$44.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/shaperiter/1882" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 74 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/aKwa_Daystar_Shade_202403_Update_Shopping_Page_ENG.jpeg?width=200&mode=crop&quality=80" alt="Protector Solar Humectante con FPS 30">
+                <h3>Protector Solar Humectante con FPS 30</h3>
+                <div class="price-container">
+                    <span class="price-final">$37.00</span>
+                    <span class="price-original">$44.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/daystar-shadet-spf-40-moisturizing-sunscreen/1915" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 75 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/zinc_factor_20210707110730.jpg?width=200&mode=crop&quality=80" alt="Zinc Factor">
+                <h3>Zinc Factor</h3>
+                <div class="price-container">
+                    <span class="price-final">$70.00</span>
+                    <span class="price-original">$82.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/zinc-factor/2307" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 76 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Fortified_Colostrum_US.jpg?width=200&mode=crop&quality=80" alt="Fortified Colostrum">
+                <h3>Fortified Colostrum</h3>
+                <div class="price-container">
+                    <span class="price-final">$37.00</span>
+                    <span class="price-original">$44.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/fortified-colostrum/2451" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 77 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Advanced-Plus-Pack_20210928122638.png?width=200&mode=crop&quality=80" alt="Paquete Avanzado Plus para el Cociente Intelectual del Sistema Inmunológico">
+                <h3>Paquete Avanzado Plus para el Cociente Intelectual del Sistema Inmunológico</h3>
+                <div class="price-container">
+                    <span class="price-final">$277.00</span>
+                    <span class="price-original">$326.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/immune-iq-advanced-plus-pack/1550" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 78 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Advanced-Pack_20210928122916.png?width=200&mode=crop&quality=80" alt="Paquete Avanzado para el Cociente Intelectual del Sistema Inmunitario">
+                <h3>Paquete Avanzado para el Cociente Intelectual del Sistema Inmunitario</h3>
+                <div class="price-container">
+                    <span class="price-final">$157.00</span>
+                    <span class="price-original">$185.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/immune-iq-advanced-pack/1457" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 79 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/_51A8608_20190619095329.jpg?width=200&mode=crop&quality=80" alt="Tónico Cuatro en Uno">
+                <h3>Tónico Cuatro en Uno</h3>
+                <div class="price-container">
+                    <span class="price-final">$30.00</span>
+                    <span class="price-original">$35.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/akwa-four-way-toner/1524" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 80 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/core_pack_2.jpg?width=200&mode=crop&quality=80" alt="Paquete Inicio Acelerado—Productos Fundamentales">
+                <h3>Paquete Inicio Acelerado—Productos Fundamentales</h3>
+                <div class="price-container">
+                    <span class="price-final">$748.00</span>
+                    <span class="price-original">$880.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/fast-start-core-pack/3479" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 81 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/4Life-Rebrand-US-Market-202104_Products-TF-Immune-Spray-Orange-Photography.jpg?width=200&mode=crop&quality=80" alt="Immune Spray Naranja">
+                <h3>Immune Spray Naranja</h3>
+                <div class="price-container">
+                    <span class="price-final">$31.00</span>
+                    <span class="price-original">$37.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-immune-spray/83" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 82 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Immune_Plus_Energy_Pack.jpeg?width=200&mode=crop&quality=80" alt="Paquete Inmunológico Energy Plus">
+                <h3>Paquete Inmunológico Energy Plus</h3>
+                <div class="price-container">
+                    <span class="price-final">$240.00</span>
+                    <span class="price-original">$282.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/immune-plus-energy-pack/3530" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 83 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-New-Shampoo-Product-Image-1000px_20211101120241.jpg?width=200&mode=crop&quality=80" alt="Champú">
+                <h3>Champú</h3>
+                <div class="price-container">
+                    <span class="price-final">$20.00</span>
+                    <span class="price-original">$23.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/enummi-shampoo/357" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 84 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-New-BodyWash-Product-Image-1000px_20211101120312.jpg?width=200&mode=crop&quality=80" alt="Gel de Baño">
+                <h3>Gel de Baño</h3>
+                <div class="price-container">
+                    <span class="price-final">$20.00</span>
+                    <span class="price-original">$24.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/enummi-body-wash/355" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 85 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/4Life-Transform-Packs-202303_Shred-Chocolate-Shopping-Page_ENG-SPA.jpg?width=200&mode=crop&quality=80" alt="4LifeTransform Shred Pack for Men Chocolate">
+                <h3>4LifeTransform Shred Pack for Men Chocolate</h3>
+                <div class="price-container">
+                    <span class="price-final">$286.00</span>
+                    <span class="price-original">$336.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/4lifetransform-shred-pack-for-men-chocolate/3310" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 86 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/shred_pack_vanilla.png?width=200&mode=crop&quality=80" alt="Paquete 4LifeTransform Shred* para Hombres">
+                <h3>Paquete 4LifeTransform Shred* para Hombres</h3>
+                <div class="price-container">
+                    <span class="price-final">$286.00</span>
+                    <span class="price-original">$336.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/shred-pack/3270" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 87 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New_ShampooConditionerDuo-102821_20211103132557.jpg?width=200&mode=crop&quality=80" alt="enummi®Dúo para el cabello">
+                <h3>enummi®Dúo para el cabello</h3>
+                <div class="price-container">
+                    <span class="price-final">$35.00</span>
+                    <span class="price-original">$41.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/hair-care-duo/2413" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 88 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/_51A8600_20190619095238.jpg?width=200&mode=crop&quality=80" alt="Mascarilla de barro volcánico">
+                <h3>Mascarilla de barro volcánico</h3>
+                <div class="price-container">
+                    <span class="price-final">$32.00</span>
+                    <span class="price-original">$38.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/akwa-volcanic-mud-mask/1525" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 89 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New_Shower-trio_102821_20211103132526.jpg?width=200&mode=crop&quality=80" alt="Trío para la Ducha">
+                <h3>Trío para la Ducha</h3>
+                <div class="price-container">
+                    <span class="price-final">$55.00</span>
+                    <span class="price-original">$65.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/hair-care-trio/2414" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 90 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/_51A8588_20190619095023.jpg?width=200&mode=crop&quality=80" alt="Royal Bath™Mascarilla de velo">
+                <h3>Royal Bath™Mascarilla de velo</h3>
+                <div class="price-container">
+                    <span class="price-final">$31.00</span>
+                    <span class="price-original">$37.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/akwa-sheet-mask/1529" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 91 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Pro_TF_Chocolate_Lean_Fit.png?width=200&mode=crop&quality=80" alt="Paquete 4LifeTransform Lean and Fit* para Mujeres*">
+                <h3>Paquete 4LifeTransform Lean and Fit* para Mujeres*</h3>
+                <div class="price-container">
+                    <span class="price-final">$331.00</span>
+                    <span class="price-original">$389.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/lean-and-fit-pack/3269" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 92 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Pro_TF_Vanilla_Lean_Fit_20231220153213.png?width=200&mode=crop&quality=80" alt="4LifeTransform Lean and Fit Pack for Women">
+                <h3>4LifeTransform Lean and Fit Pack for Women</h3>
+                <div class="price-container">
+                    <span class="price-final">$331.00</span>
+                    <span class="price-original">$389.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/4lifetransform-lean-and-fit-pack-for-women/3311" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 93 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/New-Conditioner-Product-Image-1000px_20210914124010.jpg?width=200&mode=crop&quality=80" alt="Acondicionador">
+                <h3>Acondicionador</h3>
+                <div class="price-container">
+                    <span class="price-final">$15.00</span>
+                    <span class="price-original">$18.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/conditioner/2406" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 94 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Fast_Start_Professional_Pack_US_with_bag_1000px.jpg?width=200&mode=crop&quality=80" alt="Paquete Inicio Acelerado Profesional">
+                <h3>Paquete Inicio Acelerado Profesional</h3>
+                <div class="price-container">
+                    <span class="price-final">$1,455.00</span>
+                    <span class="price-original">$1,712.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/fast-start-professional-pack/2763" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 95 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Get-Burning-Pack-202303_Shopping-Page-Women3.jpg?width=200&mode=crop&quality=80" alt="Paquete 4LifeTransform Get Burning para Mujeres">
+                <h3>Paquete 4LifeTransform Get Burning para Mujeres</h3>
+                <div class="price-container">
+                    <span class="price-final">$316.00</span>
+                    <span class="price-original">$372.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/4lifetransform-get-burning-pack-for-women/3261" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 96 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/tf_Classic_Sample_Pack_1000px.jpg?width=200&mode=crop&quality=80" alt="Paquetes de muestras de Transfer Factor Clásico">
+                <h3>Paquetes de muestras de Transfer Factor Clásico</h3>
+                <div class="price-container">
+                    <span class="price-final">$57.00</span>
+                    <span class="price-original">$67.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/transfer-factor-classic-sample-packs/1572" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 97 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/fortifynewpackage_20200228154848.jpg?width=200&mode=crop&quality=80" alt="4Life Fortify">
+                <h3>4Life Fortify</h3>
+                <div class="price-container">
+                    <span class="price-final">$41.00</span>
+                    <span class="price-original">$48.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/fortify/37" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+
+            <!-- Producto 98 -->
+            <div class="product-card">
+                <img src="https://media2.4life.com/products/Get-Burning-Pack-202303_Shopping-Page-Men3.jpg?width=200&mode=crop&quality=80" alt="Paquete 4LifeTransform Get Burning para Hombres">
+                <h3>Paquete 4LifeTransform Get Burning para Hombres</h3>
+                <div class="price-container">
+                    <span class="price-final">$316.00</span>
+                    <span class="price-original">$372.00</span>
+                </div>
+                <p class="product-description">Descubre los beneficios de este increíble producto 4Life. ¡Ideal para tu bienestar!</p>
+                <a href="https://usspanish.4life.com/12492057/product/4lifetransform-get-burning-pack-for-men/3260" target="_blank" class="buy-button">Comprar en mi Tienda 4Life</a>
+            </div>
+            <!-- FIN DE LA LISTA DE PRODUCTOS -->
+
+        </div> <!-- Cierre de .products-grid -->
+    </section> <!-- Cierre de #todos-los-productos -->
+
+    <section id="sobre-4life" class="section" style="background-color: #ffffff;">
+        <h2>La Ciencia Detrás de 4Life Transfer Factor®</h2>
+        <p class="subtitle">
+            Los productos 4Life Transfer Factor están protegidos por patentes y se basan en una investigación científica rigurosa. Los factores de transferencia son moléculas mensajeras diminutas que educan a tu sistema inmunitario, ayudándolo a reconocer, responder y recordar amenazas potenciales de manera más eficaz. Descubre cómo la innovación de 4Life puede fortalecer tu bienestar.
+        </p>
+    </section>
+
+    <section id="contacto" class="chatbot-section section">
+        <h2>¿Tienes Preguntas? Estoy Aquí para Ayudarte</h2>
+        <p class="subtitle">
+            Utiliza nuestro chatbot para respuestas instantáneas o contáctame directamente por WhatsApp para una asesoría personalizada. ¡Tu bienestar es mi prioridad!
+        </p>
+        <div style="max-width: 800px; margin: auto; border: 1px solid #ccc; border-radius: 10px; overflow: hidden;">
+            <iframe
+                src="https://www.chatbase.co/chatbot-iframe/_hqPIZMOzyxcQDeVHZDQU"
+                width="100%"
+                style="height: 600px; min-height: 450px; border: none;" 
+                frameborder="0"
+            ></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>Marisol Meléndez - Distribuidora Independiente 4Life</p>
+        <p>
+            <a href="https://wa.me/584120496945" target="_blank">Contáctame por WhatsApp: +58 412-0496945</a>
+            <!-- | <a href="#tus-redes-sociales" target="_blank">Mis Redes Sociales</a> -->
+        </p>
+        <p class="footer-disclaimer">
+            Descargo de responsabilidad: Estos productos no tienen la intención de diagnosticar, tratar, curar o prevenir ninguna enfermedad. Los resultados individuales pueden variar. La información en este sitio web es solo para fines informativos y no sustituye el consejo médico profesional.
+        </p>
+        <p>© <script>document.write(new Date().getFullYear())</script> Marisol Meléndez. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/584120496945" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/800px-WhatsApp.svg.png" alt="WhatsApp Icon">
+        <span class="whatsapp-tooltip">¡Haz Click y Hablemos!</span>
+    </a>
+
+</body>
+</html>
+
