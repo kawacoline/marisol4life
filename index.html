@@ -18,29 +18,26 @@
         }
         header {
             background-color: #ffffff;
-            padding: 0.8em 20px; /* Ajustado el padding */
-            display: flex; /* Usamos flexbox */
-            justify-content: space-between; /* Para distribuir los elementos */
-            align-items: center; /* Para centrar verticalmente */
+            padding: 0.8em 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-
-        /* Estilo para un posible logo o título a la izquierda */
         .header-logo a {
             text-decoration: none;
             color: #005695;
             font-weight: 700;
             font-size: 1.5em;
         }
-
-        nav { /* La navegación principal se mantiene en el centro (o donde quede naturalmente) */
+        nav {
             text-align: center;
         }
         nav a {
-            margin: 0 15px;
+            margin: 0 12px; /* Reducido un poco para más espacio */
             text-decoration: none;
             color: #005695;
             font-weight: 700;
@@ -51,27 +48,32 @@
             color: #ff7f00;
             text-decoration: underline;
         }
+        .nav-link-testimonios { /* Estilo específico para el enlace de testimonios si se quiere destacar */
+            /* color: #d9534f; /* Ejemplo de color diferente */
+        }
+        .nav-link-testimonios:hover {
+            /* color: #c9302c; */
+        }
 
-        .header-social-icons { /* Contenedor para los iconos sociales a la derecha */
+        .header-social-icons {
             display: flex;
             align-items: center;
         }
         .header-social-icons a {
-            margin-left: 15px; /* Espacio entre iconos sociales */
+            margin-left: 15px;
             display: inline-block;
-            line-height: 0; /* Para alinear mejor los SVGs */
+            line-height: 0;
         }
         .header-social-icons svg {
-            width: 22px; /* Tamaño de los iconos sociales */
+            width: 22px;
             height: 22px;
-            fill: #005695; /* Color inicial de los iconos */
+            fill: #005695;
             transition: fill 0.3s ease, transform 0.2s ease;
         }
         .header-social-icons a:hover svg {
-            fill: #ff7f00; /* Color al pasar el mouse */
+            fill: #ff7f00;
             transform: scale(1.1);
         }
-
 
         .hero {
             background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1999&q=80');
@@ -90,7 +92,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.55); /* Un poco más oscuro para mejor contraste */
         }
         .hero-content {
             position: relative;
@@ -206,18 +208,20 @@
         }
         .product-card .price-container {
             margin-bottom: 18px;
-            text-align: left;
+            text-align: center; /* CENTRADO */
         }
         .product-card .price-final {
             font-size: 1.4em;
             font-weight: 700;
             color: #007bff;
-            margin-right: 10px;
+            display: block; /* Para que ocupe su propia línea y permita centrar */
+            margin-bottom: 5px; /* Espacio entre precios */
         }
         .product-card .price-original {
             font-size: 1em;
             color: #777;
             text-decoration: line-through;
+            display: block; /* Para que ocupe su propia línea y permita centrar */
         }
         .product-card .buy-button {
             background-color: #28a745;
@@ -235,6 +239,38 @@
             background-color: #218838;
             transform: scale(1.03);
         }
+
+        /* Sección de Testimonios */
+        .testimonials-section {
+            background-color: #f9f9f9; /* Un fondo ligeramente diferente */
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .testimonial-video-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden; /* Para que el iframe no se salga del borde redondeado */
+        }
+        .testimonial-video-card iframe {
+            width: 100%;
+            height: 315px; /* Altura estándar para videos 16:9, puedes ajustarla */
+            border: none;
+        }
+         /* Estilos para el título del video si lo necesitas */
+        .testimonial-video-card h4 {
+            padding: 10px 15px;
+            margin: 0;
+            font-size: 1.1em;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
 
         .chatbot-section { padding: 50px 0; background-color: #f4f8fc; }
         .chatbot-section iframe {
@@ -255,14 +291,14 @@
         footer a:hover { text-decoration: underline; color: #5dade2; }
         .footer-disclaimer { font-size: 0.8em; color: #bdc3c7; margin-top: 20px; padding: 0 10%;}
 
-        .floating-icon { /* Estilo base para iconos flotantes */
+        .floating-icon {
             position: fixed;
             width: 60px;
             height: 60px;
             color: #FFF;
             border-radius: 50%;
             text-align: center;
-            font-size: 30px; /* Tamaño del icono dentro del círculo */
+            font-size: 30px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             z-index: 1000;
             display: flex;
@@ -273,7 +309,7 @@
         .floating-icon:hover {
             transform: scale(1.12);
         }
-        .floating-icon img, .floating-icon svg { /* Para iconos img o svg dentro del flotante */
+        .floating-icon img, .floating-icon svg {
             width: 35px;
             height: 35px;
         }
@@ -286,60 +322,59 @@
         .whatsapp-float:hover { background-color: #1EBE57; }
 
         .telegram-float {
-            background-color: #0088cc; /* Color de Telegram */
-            bottom: 100px; /* Posición encima del de WhatsApp */
+            background-color: #0088cc;
+            bottom: 100px;
             right: 30px;
         }
         .telegram-float:hover { background-color: #0077b3; }
 
-
-        .floating-tooltip { /* Estilo base para tooltips de iconos flotantes */
+        .floating-tooltip {
             visibility: hidden;
-            width: 180px;
+            width: max-content; /* Ajusta el ancho al contenido */
+            max-width: 200px; /* Pero no más de 200px */
             background-color: #333;
             color: #fff;
             text-align: center;
             border-radius: 6px;
-            padding: 10px;
+            padding: 8px 12px; /* Ajustado el padding */
             position: absolute;
             z-index: 1;
-            bottom: 115%;
-            right: 50%;
-            transform: translateX(50%); /* Centrar tooltip */
+            bottom: 50%; /* Centrado verticalmente con el icono */
+            right: 120%; /* Posiciona a la izquierda del icono */
+            transform: translateY(50%); /* Ajuste vertical para centrar bien */
             opacity: 0;
             transition: opacity 0.3s ease, visibility 0.3s ease;
             font-size: 0.85em;
             font-weight: 400;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            white-space: nowrap; /* Evita que el texto se divida en múltiples líneas si es corto */
         }
-        .floating-icon:hover .floating-tooltip { /* Mostrar tooltip en hover del icono padre */
+        .floating-icon:hover .floating-tooltip {
             visibility: visible;
             opacity: 1;
         }
 
-
         /* Responsive adjustments */
         @media (max-width: 992px) {
-            .products-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+            .products-grid, .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
             .hero h1 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
-            nav { flex-grow: 1; text-align: center;} /* Permite que la nav ocupe espacio */
+            nav { flex-grow: 1; text-align: center;}
             .header-social-icons { justify-content: flex-end;}
         }
         @media (max-width: 768px) {
-            header { flex-wrap: wrap; justify-content: center; padding: 1em 10px; } /* Permite que los elementos se envuelvan */
+            header { flex-wrap: wrap; justify-content: center; padding: 1em 10px; }
             .header-logo { width: 100%; text-align: center; margin-bottom: 10px;}
-            nav { order: 2; width: 100%; text-align: center; margin-bottom: 10px;} /* Navegación abajo del logo */
-            nav a { margin: 0 8px; font-size: 1em;}
-            .header-social-icons { order: 1; width: 100%; justify-content: center; margin-bottom: 10px;} /* Iconos sociales arriba */
+            nav { order: 2; width: 100%; text-align: center; margin-bottom: 10px;}
+            nav a { margin: 0 8px; font-size: 0.95em;} /* Un poco más pequeño para que quepan */
+            .header-social-icons { order: 1; width: 100%; justify-content: center; margin-bottom: 10px;}
             .header-social-icons a { margin: 0 10px;}
-
 
             .hero { padding: 80px 20px; }
             .hero h1 { font-size: 2.2em; }
             .hero p { font-size: 1.1em; }
             .section h2 { font-size: 2em; }
-            .products-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;}
+            .products-grid, .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;}
             .product-card { padding: 20px; }
             .product-card img { height: 180px; }
 
@@ -347,12 +382,14 @@
             .floating-icon img, .floating-icon svg { width: 30px; height: 30px; }
             .whatsapp-float { bottom: 20px; right: 20px; }
             .telegram-float { bottom: 85px; right: 20px; }
+            .floating-tooltip { right: 115%; } /* Ajuste para móviles */
         }
          @media (max-width: 480px) {
-            .products-grid { grid-template-columns: 1fr; }
+            .products-grid, .testimonials-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 1.8em; }
             .hero p { font-size: 1em; }
-            nav a { display: inline-block; margin: 5px 5px; } /* Para que no se apilen tanto */
+            nav a { display: inline-block; margin: 5px 5px; font-size: 0.9em;}
+            .testimonial-video-card iframe { height: 250px; } /* Menor altura para videos en móviles */
          }
     </style>
 </head>
@@ -360,12 +397,12 @@
 
     <header>
         <div class="header-logo">
-            <!-- Puedes poner tu nombre o un logo pequeño aquí si quieres -->
-            <!-- <a href="#inicio">Marisol Meléndez</a> -->
+            <!-- <a href="#inicio">Marisol M.</a> -->
         </div>
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#todos-los-productos">Productos</a>
+            <a href="#testimonios" class="nav-link-testimonios">Testimonios</a> <!-- NUEVO ENLACE -->
             <a href="#sobre-4life">Sobre 4Life</a>
             <a href="#contacto">Contacto</a>
         </nav>
@@ -1585,6 +1622,26 @@
     </section> <!-- Cierre de #todos-los-productos -->
 
 
+  <!-- NUEVA SECCIÓN DE TESTIMONIOS -->
+    <section id="testimonios" class="section testimonials-section">
+        <h2>Testimonios de Bienestar</h2>
+        <p class="subtitle">Escucha las historias de quienes han transformado su vida con 4Life.</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-video-card">
+                <!-- <h4>Testimonio Video 1</h4> -->
+                <iframe src="https://drive.google.com/file/d/1yvprSdo-FJ_pfn21HDYkAC2SsebG5U8g/preview" allow="autoplay"></iframe>
+            </div>
+            <div class="testimonial-video-card">
+                <!-- <h4>Testimonio Video 2</h4> -->
+                <iframe src="https://drive.google.com/file/d/1z-nXLFWG0Sj6FaRUTlsh8ytv5yxo7OmG/preview" allow="autoplay"></iframe>
+            </div>
+            <div class="testimonial-video-card">
+                <!-- <h4>Testimonio Video 3</h4> -->
+                <iframe src="https://drive.google.com/file/d/1z-mqGgFSmDq1gAxFVwVGyZS8sKH1wnAf/preview" allow="autoplay"></iframe>
+            </div>
+        </div>
+    </section>
+
     <section id="sobre-4life" class="section" style="background-color: #ffffff;">
         <h2>La Ciencia Detrás de 4Life Transfer Factor®</h2>
         <p class="subtitle">
@@ -1611,7 +1668,7 @@
         <p>Marisol Meléndez - Distribuidora Independiente 4Life</p>
         <p>
             <a href="https://wa.me/584120496945" target="_blank">Contáctame por WhatsApp: +58 412-0496945</a>
-            <br> <!-- Salto de línea para mejor visualización de los enlaces del footer -->
+            <br>
             <a href="https://t.me/losiramy" target="_blank">Sígueme en Telegram</a> |
             <a href="https://www.instagram.com/marisol_melendez12?igsh=YzljYTk1ODg3Zg==" target="_blank">Instagram</a> |
             <a href="https://www.youtube.com/@marisolmelendez3409" target="_blank">YouTube</a>
@@ -1622,15 +1679,16 @@
         <p>© <script>document.write(new Date().getFullYear())</script> Marisol Meléndez. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Icono Flotante de WhatsApp -->
     <a href="https://wa.me/584120496945" target="_blank" class="floating-icon whatsapp-float" aria-label="Contactar por WhatsApp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/800px-WhatsApp.svg.png" alt="WhatsApp Icon">
         <span class="floating-tooltip">¡Chatea por WhatsApp!</span>
     </a>
 
-    <!-- Icono Flotante de Telegram -->
     <a href="https://t.me/losiramy" target="_blank" class="floating-icon telegram-float" aria-label="Contactar por Telegram">
-        <svg viewBox="0 0 24 24" fill="white"><path d="M9.78 18.65l.28-4.23c.07-1.03-.2-1.7-.48-1.98-.3-.29-.7-.45-1.1-.45-.14 0-.28.01-.42.04l4.12-3.95c.71-.69 1.13-1.05 1.13-1.59s-.39-1.02-1.1-1.02h-.01c-.78 0-1.5.48-2.29 1.44l-3.83 3.96c-.41.43-.68.7-.68.95s.21.53.5.78l3.03 2.47.15 4.06c0 .41.17.78.51 1.05.35.27.78.41 1.22.41.38 0 .73-.11 1.02-.33.29-.22.5-.49.62-.82l.01-.02zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.63 14.74c-.23.22-.53.35-.86.35-.23 0-.46-.06-.67-.17l-2.99-1.62-1.49 1.34c-.85.77-1.82 1.15-2.79 1.15-.33 0-.66-.04-.98-.12-.32-.08-.63-.2-.92-.37s-.54-.38-.76-.62c-.22-.24-.4-.52-.53-.83s-.19-.64-.19-1v-.01l.01-4.89c0-1.1.35-2.05 1.04-2.86.7-.8 1.58-1.21 2.64-1.21.33 0 .67.04.99.12.33.08.64.2.94.37.29.17.55.38.77.62.22.24.4.51.53.82.12.32.19.65.19.99 0 .78-.31 1.63-1.01 2.55l-2.71 2.97 2.48 1.34c.29.17.58.25.86.25.39 0 .74-.13 1.02-.39.28-.26.42-.59.42-1s-.12-.76-.35-1.06c-.23-.3-.54-.56-.91-.77-.38-.21-.77-.32-1.19-.32h-.02c-.53 0-1.03.12-1.48.37s-.83.57-1.13.95c-.3.38-.52.79-.66 1.23-.14.44-.21.9-.21 1.38v.02h.01c.07.91.36 1.68.89 2.32.52.64 1.21 1.12 2.06 1.44.85.32 1.75.49 2.69.49.44 0 .86-.07 1.25-.2.4-.13.75-.32 1.06-.57.31-.25.55-.55.73-.89.18-.34.27-.71.27-1.11 0-.29-.05-.57-.14-.84s-.22-.52-.4-.75z" /></svg>
+        <!-- ICONO DE TELEGRAM CORRECTO -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="white">
+            <defs><linearGradient id="a" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#37aee2"/><stop offset="1" stop-color="#1e96c8"/></linearGradient><linearGradient id="b" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#eff7fc"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><circle cx="120" cy="120" r="120" fill="url(#a)"/><path fill="url(#b)" d="M98 175c-3.888 0-3.227-1.468-4.568-5.17L82 132.207 170 80"/><path fill="#d2eafa" d="M98 175c3 0 4.325-1.372 6-3l16-15.558-19.958-12.035"/><path fill="url(#b)" d="M100.04 144.41l48.36 35.729c5.519 3.045 9.501 1.468 10.876-5.123l19.685-92.763c2.015-8.08-3.08-11.746-8.36-9.349l-115.59 44.572c-7.89 3.165-7.843 7.566-1.438 9.528l29.663 9.259 68.673-43.325c3.242-1.965 6.218-.91 3.775 1.26L100.04 144.41z"/>
+        </svg>
         <span class="floating-tooltip">¡Escríbeme en Telegram!</span>
     </a>
 
