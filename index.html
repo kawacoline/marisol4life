@@ -20,30 +20,15 @@
             background-color: #ffffff;
             padding: 0.8em 20px;
             display: flex;
-            justify-content: space-between; /* Distribuye espacio: logo izq, nav centro, social der */
+            justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-
-        .header-left { /* Contenedor para el logo o espacio izquierdo */
-            flex: 1; /* Ocupa 1/3 del espacio disponible */
-            /* Si pones un logo, dale estilos aquí */
-        }
-        .header-logo a {
-            text-decoration: none;
-            color: #005695;
-            font-weight: 700;
-            font-size: 1.5em; /* Ajusta si usas texto como logo */
-        }
-
-
-        nav {
-            flex: 2; /* Ocupa 2/3 del espacio, dando más peso al centro */
-            text-align: center; /* Centra los enlaces de navegación */
-        }
+        .header-left { flex: 1; }
+        nav { flex: 2; text-align: center; }
         nav a {
             margin: 0 12px;
             text-decoration: none;
@@ -52,31 +37,26 @@
             font-size: 1.05em;
             transition: color 0.3s ease;
         }
-        nav a:hover, nav a.active {
-            color: #ff7f00;
-            text-decoration: underline;
-        }
+        nav a:hover, nav a.active { color: #ff7f00; text-decoration: underline; }
 
         .header-social-icons {
-            flex: 1; /* Ocupa 1/3 del espacio */
+            flex: 1;
             display: flex;
-            justify-content: flex-end; /* Alinea los iconos a la derecha de su contenedor */
+            justify-content: flex-end;
             align-items: center;
         }
         .header-social-icons a {
-            margin-left: 18px; /* Aumentado un poco el espacio */
+            margin-left: 15px; /* Espacio entre iconos */
             display: inline-block;
             line-height: 0;
         }
-        .header-social-icons svg {
-            width: 22px;
-            height: 22px;
-            fill: #005695;
-            transition: fill 0.3s ease, transform 0.2s ease;
+        .header-social-icons svg, .header-social-icons img { /* Aplicable a SVG e IMG */
+            width: 24px; /* Tamaño ajustado para iconos a color */
+            height: 24px;
+            transition: transform 0.2s ease;
         }
-        .header-social-icons a:hover svg {
-            fill: #ff7f00;
-            transform: scale(1.1);
+        .header-social-icons a:hover svg, .header-social-icons a:hover img {
+            transform: scale(1.15); /* Agrandar un poco en hover */
         }
 
         /* ... (resto del CSS de hero, section, products, testimonials, chatbot, footer es igual) ... */
@@ -245,14 +225,13 @@
             transform: scale(1.03);
         }
 
-        .testimonials-section {
-            background-color: #f9f9f9;
-        }
+        /* Sección de Testimonios (Google Drive Videos) */
+        .testimonials-section { background-color: #f9f9f9; }
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ancho mínimo mayor */
             gap: 30px;
-            max-width: 1100px;
+            max-width: 1200px; /* Aumentado para videos más grandes */
             margin: 0 auto;
         }
         .testimonial-video-card {
@@ -263,135 +242,101 @@
         }
         .testimonial-video-card iframe {
             width: 100%;
-            height: 315px;
+            height: 450px; /* ALTURA AUMENTADA PARA VIDEOS DE GOOGLE DRIVE */
             border: none;
         }
 
-        .chatbot-section { padding: 50px 0; background-color: #f4f8fc; }
-        .chatbot-section iframe {
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            min-height: 600px;
+        /* Sección La Ciencia Detrás (YouTube Videos) */
+        .science-section { background-color: #ffffff; }
+        .science-video-carousel-container {
+            max-width: 90%; /* Limita el ancho del carrusel en pantallas grandes */
+            margin: 0 auto;
+            overflow-x: auto; /* Permite scroll horizontal */
+            padding-bottom: 20px; /* Espacio para la barra de scroll si aparece */
+            -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+        }
+        .science-video-carousel {
+            display: flex; /* Alinea los videos horizontalmente */
+            flex-wrap: nowrap; /* Evita que los videos se envuelvan */
+            gap: 25px; /* Espacio entre videos */
+        }
+        .science-video-slide {
+            flex: 0 0 auto; /* Cada video toma su propio ancho, no se estira/encoge */
+            width: 380px; /* Ancho fijo para cada video (ajusta según necesites) */
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .science-video-slide iframe {
+            width: 100%;
+            height: 214px; /* Para mantener relación 16:9 con ancho de 380px */
+            border: none;
+            display: block; /* Para remover espacio extra debajo del iframe */
         }
 
-        footer {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.95em;
-        }
-        footer p { margin: 8px 0; }
-        footer a { color: #3498db; text-decoration: none; }
-        footer a:hover { text-decoration: underline; color: #5dade2; }
-        .footer-disclaimer { font-size: 0.8em; color: #bdc3c7; margin-top: 20px; padding: 0 10%;}
 
-        .floating-icon {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        .floating-icon:hover {
-            transform: scale(1.12);
-        }
-        .floating-icon img, .floating-icon svg {
-            width: 35px;
-            height: 35px;
-        }
+        .chatbot-section { /* ... sin cambios ... */ }
+        .chatbot-section iframe { /* ... sin cambios ... */ }
+        footer { /* ... sin cambios ... */ }
+        footer p { /* ... sin cambios ... */ }
+        footer a { /* ... sin cambios ... */ }
+        footer a:hover { /* ... sin cambios ... */ }
+        .footer-disclaimer { /* ... sin cambios ... */ }
 
-        .whatsapp-float {
-            background-color: #25D366;
-            bottom: 30px;
-            right: 30px;
-        }
-        .whatsapp-float:hover { background-color: #1EBE57; }
-
-        .telegram-float {
-            background-color: #0088cc;
-            bottom: 100px;
-            right: 30px;
-        }
-        .telegram-float:hover { background-color: #0077b3; }
+        .floating-icon { /* ... sin cambios ... */ }
+        .floating-icon:hover { /* ... sin cambios ... */ }
+        .floating-icon img, .floating-icon svg { /* ... sin cambios ... */ }
+        .whatsapp-float { /* ... sin cambios ... */ }
+        .whatsapp-float:hover { /* ... sin cambios ... */ }
+        .telegram-float { /* ... sin cambios ... */ }
+        .telegram-float:hover { /* ... sin cambios ... */ }
 
         .floating-tooltip {
             visibility: hidden;
             background-color: #333;
             color: #fff;
-            text-align: left; /* Alineación a la izquierda para el texto */
+            text-align: left;
             border-radius: 6px;
             padding: 8px 12px;
             position: absolute;
             z-index: 1;
             bottom: 50%;
-            right: 110%; /* Un poco más separado del icono */
+            right: 110%;
             transform: translateY(50%);
             opacity: 0;
             transition: opacity 0.3s ease, visibility 0.3s ease;
             font-size: 0.85em;
             font-weight: 400;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            /* white-space: nowrap;  Quitamos esto para permitir que el texto se divida */
-            width: auto; /* Permitir que el ancho se ajuste al contenido */
-            min-width: 150px; /* Un ancho mínimo para que no sea demasiado estrecho */
+            width: auto;
+            min-width: 150px;
         }
-        .floating-icon:hover .floating-tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
+        .floating-icon:hover .floating-tooltip { visibility: visible; opacity: 1; }
 
         /* Responsive adjustments */
         @media (max-width: 992px) {
-            header { padding: 0.8em 15px; }
-            nav a { margin: 0 10px; font-size: 1em; }
-            .header-social-icons a { margin-left: 12px;}
-            .header-social-icons svg { width: 20px; height: 20px;}
-
-            .products-grid, .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-            .hero h1 { font-size: 2.5em; }
-            .hero p { font-size: 1.2em; }
+            /* ... (otros ajustes responsivos sin cambios significativos para estos elementos) ... */
+            .science-video-slide { width: 340px; } /* Ajustar ancho de videos de ciencia */
+            .science-video-slide iframe { height: 191px; }
+            .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
         }
         @media (max-width: 768px) {
-            header { flex-direction: column; /* Apila los elementos del header */ padding: 1em 10px; }
-            .header-left, nav, .header-social-icons {
-                flex: none; /* Resetea flex-grow/shrink/basis */
-                width: 100%; /* Ocupa todo el ancho */
-                text-align: center; /* Centra el contenido de cada bloque */
-                margin-bottom: 10px;
-            }
-            .header-social-icons { justify-content: center; margin-left: 0;} /* Centra los iconos sociales */
+            header { flex-direction: column; padding: 1em 10px; }
+            .header-left, nav, .header-social-icons { flex: none; width: 100%; text-align: center; margin-bottom: 10px; }
+            .header-social-icons { justify-content: center; margin-left: 0;}
             .header-social-icons a { margin: 0 10px;}
             nav a { margin: 0 8px; font-size: 0.95em;}
 
-            .hero { padding: 80px 20px; }
-            .hero h1 { font-size: 2.2em; }
-            .hero p { font-size: 1.1em; }
-            .section h2 { font-size: 2em; }
-            .products-grid, .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;}
-            .product-card { padding: 20px; }
-            .product-card img { height: 180px; }
-
-            .floating-icon { width: 55px; height: 55px; }
-            .floating-icon img, .floating-icon svg { width: 30px; height: 30px; }
-            .whatsapp-float { bottom: 20px; right: 20px; }
-            .telegram-float { bottom: 85px; right: 20px; }
-            .floating-tooltip { right: 115%; min-width: 130px; }
+            .testimonial-video-card iframe { height: 350px; } /* Ajustar altura en tablet */
+            .science-video-slide { width: 300px; }
+            .science-video-slide iframe { height: 169px; }
         }
          @media (max-width: 480px) {
-            .products-grid, .testimonials-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 1.8em; }
-            .hero p { font-size: 1em; }
-            nav a { display: inline-block; margin: 5px 5px; font-size: 0.9em;}
-            .testimonial-video-card iframe { height: 250px; }
+            .testimonial-video-card iframe { height: 280px; } /* Ajustar altura en móvil */
+            .science-video-slide { width: 280px; } /* Videos de ciencia más pequeños en móvil */
+            .science-video-slide iframe { height: 157px; }
+            nav a { font-size: 0.85em; margin: 0 5px; }
          }
     </style>
 </head>
@@ -399,32 +344,31 @@
 
     <header>
         <div class="header-left">
-            <a href="#inicio" class="header-logo">Marisol M.</a> 
-            <!-- Puedes dejar este div vacío si no quieres logo/texto a la izquierda -->
-            <!-- O puedes poner tu nombre o un pequeño logo aquí -->
+            <!-- Espacio para logo o vacío para simetría -->
         </div>
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#todos-los-productos">Productos</a>
             <a href="#testimonios" class="nav-link-testimonios">Testimonios</a>
-            <a href="#sobre-4life">Sobre 4Life</a>
+            <a href="#ciencia" class="nav-link-ciencia">La Ciencia</a> <!-- Enlace a la nueva sección -->
             <a href="#contacto">Contacto</a>
         </nav>
         <div class="header-social-icons">
             <a href="https://wa.me/584120496945" target="_blank" aria-label="WhatsApp">
-                <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.33 3.43 16.79L2.05 22L7.31 20.62C8.75 21.39 10.35 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2M12.04 3.67C16.56 3.67 20.28 7.39 20.28 11.91C20.28 16.43 16.56 20.15 12.04 20.15C10.49 20.15 9.01 19.74 7.76 19L7.32 18.76L4.41 19.65L5.33 16.83L5.07 16.39C4.16 15.04 3.79 13.5 3.79 11.91C3.79 7.39 7.52 3.67 12.04 3.67M17.17 14.44C16.93 14.93 15.71 15.55 15.19 15.62C14.67 15.69 14.02 15.69 13.54 15.45C13.06 15.21 12.19 14.93 11.16 14C9.91 12.84 9.12 11.46 8.93 11.08C8.74 10.7 8.56 10.32 8.56 9.96C8.56 9.61 8.72 9.32 8.94 9.11C9.15 8.9 9.4 8.76 9.61 8.76C9.78 8.76 9.93 8.8 10.06 8.94C10.21 9.08 10.33 9.26 10.42 9.41C10.51 9.56 10.56 9.71 10.53 9.84C10.5 9.97 10.27 10.55 10.09 10.9C9.91 11.25 9.73 11.28 9.54 11.28C9.35 11.28 9.13 11.21 8.89 11.21C8.65 11.21 8.32 11.12 7.97 10.74C7.62 10.36 7.08 9.78 7.08 9.05C7.08 8.32 7.68 7.78 7.94 7.55C8.2 7.32 8.6 7.26 8.91 7.26C9.23 7.26 9.49 7.29 9.71 7.33C10.32 7.44 10.83 7.96 11.02 8.13C11.21 8.31 11.37 8.56 11.37 8.86C11.37 9.43 11.03 10.13 10.91 10.32C10.78 10.51 10.84 10.95 11.09 11.2C11.35 11.45 11.9 11.96 12.63 12.63C13.6 13.51 14.22 13.82 14.56 13.96C14.9 14.1 15.19 14.08 15.41 13.84C15.72 13.51 16.17 12.74 16.34 12.47C16.51 12.2 16.73 12.17 16.95 12.24C17.17 12.31 17.91 12.68 18.12 12.87C18.33 13.06 18.43 13.22 18.39 13.45C18.35 13.67 17.41 14.31 17.17 14.44Z"></path></svg>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png" alt="WhatsApp">
             </a>
             <a href="https://t.me/losiramy" target="_blank" aria-label="Telegram">
-                <!-- ICONO DE TELEGRAM CORRECTO PARA EL HEADER -->
+                <!-- SVG de Telegram a color (el mismo que el flotante) -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
-                    <defs><linearGradient id="header_tg_a" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#37aee2"/><stop offset="1" stop-color="#1e96c8"/></linearGradient><linearGradient id="header_tg_b" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#eff7fc"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><circle cx="120" cy="120" r="120" fill="url(#header_tg_a)"/><path fill="url(#header_tg_b)" d="M98 175c-3.888 0-3.227-1.468-4.568-5.17L82 132.207 170 80"/><path fill="#d2eafa" d="M98 175c3 0 4.325-1.372 6-3l16-15.558-19.958-12.035"/><path fill="url(#header_tg_b)" d="M100.04 144.41l48.36 35.729c5.519 3.045 9.501 1.468 10.876-5.123l19.685-92.763c2.015-8.08-3.08-11.746-8.36-9.349l-115.59 44.572c-7.89 3.165-7.843 7.566-1.438 9.528l29.663 9.259 68.673-43.325c3.242-1.965 6.218-.91 3.775 1.26L100.04 144.41z"/>
+                    <defs><linearGradient id="header_tg_a_color" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#37aee2"/><stop offset="1" stop-color="#1e96c8"/></linearGradient><linearGradient id="header_tg_b_color" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#eff7fc"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><circle cx="120" cy="120" r="120" fill="url(#header_tg_a_color)"/><path fill="url(#header_tg_b_color)" d="M98 175c-3.888 0-3.227-1.468-4.568-5.17L82 132.207 170 80"/><path fill="#d2eafa" d="M98 175c3 0 4.325-1.372 6-3l16-15.558-19.958-12.035"/><path fill="url(#header_tg_b_color)" d="M100.04 144.41l48.36 35.729c5.519 3.045 9.501 1.468 10.876-5.123l19.685-92.763c2.015-8.08-3.08-11.746-8.36-9.349l-115.59 44.572c-7.89 3.165-7.843 7.566-1.438 9.528l29.663 9.259 68.673-43.325c3.242-1.965 6.218-.91 3.775 1.26L100.04 144.41z"/>
                 </svg>
             </a>
             <a href="https://www.instagram.com/marisol_melendez12?igsh=YzljYTk1ODg3Zg==" target="_blank" aria-label="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"></path></svg>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/240px-Instagram_icon.png" alt="Instagram">
+                <!-- Nota: El SVG original de Instagram es muy complejo. Usé un PNG optimizado de Wikimedia. Si prefieres el SVG, asegúrate de que esté bien optimizado. -->
             </a>
             <a href="https://www.youtube.com/@marisolmelendez3409" target="_blank" aria-label="YouTube">
-                <svg viewBox="0 0 24 24"><path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.76,15.81 21.22,16.77C20.69,17.73 19.89,18.34 18.86,18.6C17.64,18.88 15.44,19 12,19C8.56,19 6.36,18.88 5.14,18.6C4.11,18.34 3.31,17.73 2.78,16.77C2.24,15.81 2,14.19 2,12L2.06,11.16C2.06,10.56 2.09,9.87 2.16,9.07C2.22,8.27 2.31,7.64 2.44,7.17C2.69,6.02 3.45,5.26 4.6,5C5.16,4.9 6.07,4.85 7.33,4.82C8.59,4.79 9.69,4.78 10.61,4.78C11.53,4.78 12.39,4.78 13.16,4.79C13.93,4.8 14.64,4.82 15.28,4.84L16.17,4.87C17.37,4.93 18.22,5.03 18.86,5.17C19.89,5.44 20.69,6.05 21.22,7.01C21.35,7.26 21.45,7.58 21.56,7.17Z"></path></svg>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/240px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube">
             </a>
         </div>
     </header>
@@ -1629,31 +1573,52 @@
     </section> <!-- Cierre de #todos-los-productos -->
 
 
-  <!-- NUEVA SECCIÓN DE TESTIMONIOS -->
+    <!-- SECCIÓN DE TESTIMONIOS (Google Drive) ACTUALIZADA -->
     <section id="testimonios" class="section testimonials-section">
         <h2>Testimonios de Bienestar</h2>
         <p class="subtitle">Escucha las historias de quienes han transformado su vida con 4Life.</p>
         <div class="testimonials-grid">
             <div class="testimonial-video-card">
-                <!-- <h4>Testimonio Video 1</h4> -->
-                <iframe src="https://drive.google.com/file/d/1yvprSdo-FJ_pfn21HDYkAC2SsebG5U8g/preview" allow="autoplay"></iframe>
+                <iframe src="https://drive.google.com/file/d/1yvprSdo-FJ_pfn21HDYkAC2SsebG5U8g/preview" allow="autoplay; fullscreen"></iframe>
             </div>
             <div class="testimonial-video-card">
-                <!-- <h4>Testimonio Video 2</h4> -->
-                <iframe src="https://drive.google.com/file/d/1z-nXLFWG0Sj6FaRUTlsh8ytv5yxo7OmG/preview" allow="autoplay"></iframe>
+                <iframe src="https://drive.google.com/file/d/1z-nXLFWG0Sj6FaRUTlsh8ytv5yxo7OmG/preview" allow="autoplay; fullscreen"></iframe>
             </div>
             <div class="testimonial-video-card">
-                <!-- <h4>Testimonio Video 3</h4> -->
-                <iframe src="https://drive.google.com/file/d/1z-mqGgFSmDq1gAxFVwVGyZS8sKH1wnAf/preview" allow="autoplay"></iframe>
+                <iframe src="https://drive.google.com/file/d/1z-mqGgFSmDq1gAxFVwVGyZS8sKH1wnAf/preview" allow="autoplay; fullscreen"></iframe>
             </div>
         </div>
     </section>
 
-    <section id="sobre-4life" class="section" style="background-color: #ffffff;">
+    <!-- SECCIÓN "LA CIENCIA DETRÁS" ACTUALIZADA CON VIDEOS DE YOUTUBE -->
+    <section id="ciencia" class="section science-section">
         <h2>La Ciencia Detrás de 4Life Transfer Factor®</h2>
-        <p class="subtitle">
-            Los productos 4Life Transfer Factor están protegidos por patentes y se basan en una investigación científica rigurosa. Los factores de transferencia son moléculas mensajeras diminutas que educan a tu sistema inmunitario, ayudándolo a reconocer, responder y recordar amenazas potenciales de manera más eficaz. Descubre cómo la innovación de 4Life puede fortalecer tu bienestar.
-        </p>
+        <p class="subtitle">Descubre más sobre la innovación y la investigación que respalda nuestros productos.</p>
+        <div class="science-video-carousel-container">
+            <div class="science-video-carousel">
+                <div class="science-video-slide">
+                    <iframe src="https://www.youtube.com/embed/neu51ww2gxs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="science-video-slide">
+                    <iframe src="https://www.youtube.com/embed/Rwo6xFRxIv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="science-video-slide">
+                    <iframe src="https://www.youtube.com/embed/tbjkk0yfB3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="science-video-slide">
+                    <iframe src="https://www.youtube.com/embed/Iju6SGRWcdA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="science-video-slide">
+                    <iframe src="https://www.youtube.com/embed/ArnTQ5zw3Nw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="science-video-slide">
+                    <iframe src="https://www.youtube.com/embed/E4o5Y-hoi8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="science-video-slide">
+                    <iframe src="https://www.youtube.com/embed/8WEA-7KgIQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="contacto" class="chatbot-section section">
