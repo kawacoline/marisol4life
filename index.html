@@ -20,24 +20,32 @@
             background-color: #ffffff;
             padding: 0.8em 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Distribuye espacio: logo izq, nav centro, social der */
             align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 100;
         }
+
+        .header-left { /* Contenedor para el logo o espacio izquierdo */
+            flex: 1; /* Ocupa 1/3 del espacio disponible */
+            /* Si pones un logo, dale estilos aquí */
+        }
         .header-logo a {
             text-decoration: none;
             color: #005695;
             font-weight: 700;
-            font-size: 1.5em;
+            font-size: 1.5em; /* Ajusta si usas texto como logo */
         }
+
+
         nav {
-            text-align: center;
+            flex: 2; /* Ocupa 2/3 del espacio, dando más peso al centro */
+            text-align: center; /* Centra los enlaces de navegación */
         }
         nav a {
-            margin: 0 12px; /* Reducido un poco para más espacio */
+            margin: 0 12px;
             text-decoration: none;
             color: #005695;
             font-weight: 700;
@@ -48,19 +56,15 @@
             color: #ff7f00;
             text-decoration: underline;
         }
-        .nav-link-testimonios { /* Estilo específico para el enlace de testimonios si se quiere destacar */
-            /* color: #d9534f; /* Ejemplo de color diferente */
-        }
-        .nav-link-testimonios:hover {
-            /* color: #c9302c; */
-        }
 
         .header-social-icons {
+            flex: 1; /* Ocupa 1/3 del espacio */
             display: flex;
+            justify-content: flex-end; /* Alinea los iconos a la derecha de su contenedor */
             align-items: center;
         }
         .header-social-icons a {
-            margin-left: 15px;
+            margin-left: 18px; /* Aumentado un poco el espacio */
             display: inline-block;
             line-height: 0;
         }
@@ -75,6 +79,7 @@
             transform: scale(1.1);
         }
 
+        /* ... (resto del CSS de hero, section, products, testimonials, chatbot, footer es igual) ... */
         .hero {
             background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1999&q=80');
             background-size: cover;
@@ -92,7 +97,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.55); /* Un poco más oscuro para mejor contraste */
+            background-color: rgba(0, 0, 0, 0.55);
         }
         .hero-content {
             position: relative;
@@ -208,20 +213,20 @@
         }
         .product-card .price-container {
             margin-bottom: 18px;
-            text-align: center; /* CENTRADO */
+            text-align: center;
         }
         .product-card .price-final {
             font-size: 1.4em;
             font-weight: 700;
             color: #007bff;
-            display: block; /* Para que ocupe su propia línea y permita centrar */
-            margin-bottom: 5px; /* Espacio entre precios */
+            display: block;
+            margin-bottom: 5px;
         }
         .product-card .price-original {
             font-size: 1em;
             color: #777;
             text-decoration: line-through;
-            display: block; /* Para que ocupe su propia línea y permita centrar */
+            display: block;
         }
         .product-card .buy-button {
             background-color: #28a745;
@@ -240,9 +245,8 @@
             transform: scale(1.03);
         }
 
-        /* Sección de Testimonios */
         .testimonials-section {
-            background-color: #f9f9f9; /* Un fondo ligeramente diferente */
+            background-color: #f9f9f9;
         }
         .testimonials-grid {
             display: grid;
@@ -255,22 +259,13 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            overflow: hidden; /* Para que el iframe no se salga del borde redondeado */
+            overflow: hidden;
         }
         .testimonial-video-card iframe {
             width: 100%;
-            height: 315px; /* Altura estándar para videos 16:9, puedes ajustarla */
+            height: 315px;
             border: none;
         }
-         /* Estilos para el título del video si lo necesitas */
-        .testimonial-video-card h4 {
-            padding: 10px 15px;
-            margin: 0;
-            font-size: 1.1em;
-            color: #333;
-            background-color: #f0f0f0;
-        }
-
 
         .chatbot-section { padding: 50px 0; background-color: #f4f8fc; }
         .chatbot-section iframe {
@@ -330,24 +325,24 @@
 
         .floating-tooltip {
             visibility: hidden;
-            width: max-content; /* Ajusta el ancho al contenido */
-            max-width: 200px; /* Pero no más de 200px */
             background-color: #333;
             color: #fff;
-            text-align: center;
+            text-align: left; /* Alineación a la izquierda para el texto */
             border-radius: 6px;
-            padding: 8px 12px; /* Ajustado el padding */
+            padding: 8px 12px;
             position: absolute;
             z-index: 1;
-            bottom: 50%; /* Centrado verticalmente con el icono */
-            right: 120%; /* Posiciona a la izquierda del icono */
-            transform: translateY(50%); /* Ajuste vertical para centrar bien */
+            bottom: 50%;
+            right: 110%; /* Un poco más separado del icono */
+            transform: translateY(50%);
             opacity: 0;
             transition: opacity 0.3s ease, visibility 0.3s ease;
             font-size: 0.85em;
             font-weight: 400;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            white-space: nowrap; /* Evita que el texto se divida en múltiples líneas si es corto */
+            /* white-space: nowrap;  Quitamos esto para permitir que el texto se divida */
+            width: auto; /* Permitir que el ancho se ajuste al contenido */
+            min-width: 150px; /* Un ancho mínimo para que no sea demasiado estrecho */
         }
         .floating-icon:hover .floating-tooltip {
             visibility: visible;
@@ -356,19 +351,26 @@
 
         /* Responsive adjustments */
         @media (max-width: 992px) {
+            header { padding: 0.8em 15px; }
+            nav a { margin: 0 10px; font-size: 1em; }
+            .header-social-icons a { margin-left: 12px;}
+            .header-social-icons svg { width: 20px; height: 20px;}
+
             .products-grid, .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
             .hero h1 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
-            nav { flex-grow: 1; text-align: center;}
-            .header-social-icons { justify-content: flex-end;}
         }
         @media (max-width: 768px) {
-            header { flex-wrap: wrap; justify-content: center; padding: 1em 10px; }
-            .header-logo { width: 100%; text-align: center; margin-bottom: 10px;}
-            nav { order: 2; width: 100%; text-align: center; margin-bottom: 10px;}
-            nav a { margin: 0 8px; font-size: 0.95em;} /* Un poco más pequeño para que quepan */
-            .header-social-icons { order: 1; width: 100%; justify-content: center; margin-bottom: 10px;}
+            header { flex-direction: column; /* Apila los elementos del header */ padding: 1em 10px; }
+            .header-left, nav, .header-social-icons {
+                flex: none; /* Resetea flex-grow/shrink/basis */
+                width: 100%; /* Ocupa todo el ancho */
+                text-align: center; /* Centra el contenido de cada bloque */
+                margin-bottom: 10px;
+            }
+            .header-social-icons { justify-content: center; margin-left: 0;} /* Centra los iconos sociales */
             .header-social-icons a { margin: 0 10px;}
+            nav a { margin: 0 8px; font-size: 0.95em;}
 
             .hero { padding: 80px 20px; }
             .hero h1 { font-size: 2.2em; }
@@ -382,27 +384,29 @@
             .floating-icon img, .floating-icon svg { width: 30px; height: 30px; }
             .whatsapp-float { bottom: 20px; right: 20px; }
             .telegram-float { bottom: 85px; right: 20px; }
-            .floating-tooltip { right: 115%; } /* Ajuste para móviles */
+            .floating-tooltip { right: 115%; min-width: 130px; }
         }
          @media (max-width: 480px) {
             .products-grid, .testimonials-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 1.8em; }
             .hero p { font-size: 1em; }
             nav a { display: inline-block; margin: 5px 5px; font-size: 0.9em;}
-            .testimonial-video-card iframe { height: 250px; } /* Menor altura para videos en móviles */
+            .testimonial-video-card iframe { height: 250px; }
          }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="header-logo">
-            <!-- <a href="#inicio">Marisol M.</a> -->
+        <div class="header-left">
+            <a href="#inicio" class="header-logo">Marisol M.</a> 
+            <!-- Puedes dejar este div vacío si no quieres logo/texto a la izquierda -->
+            <!-- O puedes poner tu nombre o un pequeño logo aquí -->
         </div>
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#todos-los-productos">Productos</a>
-            <a href="#testimonios" class="nav-link-testimonios">Testimonios</a> <!-- NUEVO ENLACE -->
+            <a href="#testimonios" class="nav-link-testimonios">Testimonios</a>
             <a href="#sobre-4life">Sobre 4Life</a>
             <a href="#contacto">Contacto</a>
         </nav>
@@ -411,7 +415,10 @@
                 <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.33 3.43 16.79L2.05 22L7.31 20.62C8.75 21.39 10.35 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2M12.04 3.67C16.56 3.67 20.28 7.39 20.28 11.91C20.28 16.43 16.56 20.15 12.04 20.15C10.49 20.15 9.01 19.74 7.76 19L7.32 18.76L4.41 19.65L5.33 16.83L5.07 16.39C4.16 15.04 3.79 13.5 3.79 11.91C3.79 7.39 7.52 3.67 12.04 3.67M17.17 14.44C16.93 14.93 15.71 15.55 15.19 15.62C14.67 15.69 14.02 15.69 13.54 15.45C13.06 15.21 12.19 14.93 11.16 14C9.91 12.84 9.12 11.46 8.93 11.08C8.74 10.7 8.56 10.32 8.56 9.96C8.56 9.61 8.72 9.32 8.94 9.11C9.15 8.9 9.4 8.76 9.61 8.76C9.78 8.76 9.93 8.8 10.06 8.94C10.21 9.08 10.33 9.26 10.42 9.41C10.51 9.56 10.56 9.71 10.53 9.84C10.5 9.97 10.27 10.55 10.09 10.9C9.91 11.25 9.73 11.28 9.54 11.28C9.35 11.28 9.13 11.21 8.89 11.21C8.65 11.21 8.32 11.12 7.97 10.74C7.62 10.36 7.08 9.78 7.08 9.05C7.08 8.32 7.68 7.78 7.94 7.55C8.2 7.32 8.6 7.26 8.91 7.26C9.23 7.26 9.49 7.29 9.71 7.33C10.32 7.44 10.83 7.96 11.02 8.13C11.21 8.31 11.37 8.56 11.37 8.86C11.37 9.43 11.03 10.13 10.91 10.32C10.78 10.51 10.84 10.95 11.09 11.2C11.35 11.45 11.9 11.96 12.63 12.63C13.6 13.51 14.22 13.82 14.56 13.96C14.9 14.1 15.19 14.08 15.41 13.84C15.72 13.51 16.17 12.74 16.34 12.47C16.51 12.2 16.73 12.17 16.95 12.24C17.17 12.31 17.91 12.68 18.12 12.87C18.33 13.06 18.43 13.22 18.39 13.45C18.35 13.67 17.41 14.31 17.17 14.44Z"></path></svg>
             </a>
             <a href="https://t.me/losiramy" target="_blank" aria-label="Telegram">
-                <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23c.07-1.03-.2-1.7-.48-1.98-.3-.29-.7-.45-1.1-.45-.14 0-.28.01-.42.04l4.12-3.95c.71-.69 1.13-1.05 1.13-1.59s-.39-1.02-1.1-1.02h-.01c-.78 0-1.5.48-2.29 1.44l-3.83 3.96c-.41.43-.68.7-.68.95s.21.53.5.78l3.03 2.47.15 4.06c0 .41.17.78.51 1.05.35.27.78.41 1.22.41.38 0 .73-.11 1.02-.33.29-.22.5-.49.62-.82l.01-.02zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.63 14.74c-.23.22-.53.35-.86.35-.23 0-.46-.06-.67-.17l-2.99-1.62-1.49 1.34c-.85.77-1.82 1.15-2.79 1.15-.33 0-.66-.04-.98-.12-.32-.08-.63-.2-.92-.37s-.54-.38-.76-.62c-.22-.24-.4-.52-.53-.83s-.19-.64-.19-1v-.01l.01-4.89c0-1.1.35-2.05 1.04-2.86.7-.8 1.58-1.21 2.64-1.21.33 0 .67.04.99.12.33.08.64.2.94.37.29.17.55.38.77.62.22.24.4.51.53.82.12.32.19.65.19.99 0 .78-.31 1.63-1.01 2.55l-2.71 2.97 2.48 1.34c.29.17.58.25.86.25.39 0 .74-.13 1.02-.39.28-.26.42-.59.42-1s-.12-.76-.35-1.06c-.23-.3-.54-.56-.91-.77-.38-.21-.77-.32-1.19-.32h-.02c-.53 0-1.03.12-1.48.37s-.83.57-1.13.95c-.3.38-.52.79-.66 1.23-.14.44-.21.9-.21 1.38v.02h.01c.07.91.36 1.68.89 2.32.52.64 1.21 1.12 2.06 1.44.85.32 1.75.49 2.69.49.44 0 .86-.07 1.25-.2.4-.13.75-.32 1.06-.57.31-.25.55-.55.73-.89.18-.34.27-.71.27-1.11 0-.29-.05-.57-.14-.84s-.22-.52-.4-.75z"></path></svg>
+                <!-- ICONO DE TELEGRAM CORRECTO PARA EL HEADER -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+                    <defs><linearGradient id="header_tg_a" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#37aee2"/><stop offset="1" stop-color="#1e96c8"/></linearGradient><linearGradient id="header_tg_b" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#eff7fc"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><circle cx="120" cy="120" r="120" fill="url(#header_tg_a)"/><path fill="url(#header_tg_b)" d="M98 175c-3.888 0-3.227-1.468-4.568-5.17L82 132.207 170 80"/><path fill="#d2eafa" d="M98 175c3 0 4.325-1.372 6-3l16-15.558-19.958-12.035"/><path fill="url(#header_tg_b)" d="M100.04 144.41l48.36 35.729c5.519 3.045 9.501 1.468 10.876-5.123l19.685-92.763c2.015-8.08-3.08-11.746-8.36-9.349l-115.59 44.572c-7.89 3.165-7.843 7.566-1.438 9.528l29.663 9.259 68.673-43.325c3.242-1.965 6.218-.91 3.775 1.26L100.04 144.41z"/>
+                </svg>
             </a>
             <a href="https://www.instagram.com/marisol_melendez12?igsh=YzljYTk1ODg3Zg==" target="_blank" aria-label="Instagram">
                 <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"></path></svg>
@@ -424,8 +431,8 @@
 
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>Transforma tu Bienestar con 4Life junto a Marisol Meléndez</h1>
-            <p>Descubre productos científicamente avanzados para tu sistema inmunitario y vitalidad. ¡Comienza tu viaje hacia una vida más saludable!</p>
+            <h1>Transforma tu Salud con 4Life junto a Marisol Meléndez</h1>
+            <p>Descubre productos científicamente avanzados para tu sistema inmunitario y vitalidad. ¡Comienza una vida más saludable!</p>
             <a href="#todos-los-productos" class="cta-button">Ver Todos los Productos</a>
         </div>
     </section>
@@ -1685,9 +1692,8 @@
     </a>
 
     <a href="https://t.me/losiramy" target="_blank" class="floating-icon telegram-float" aria-label="Contactar por Telegram">
-        <!-- ICONO DE TELEGRAM CORRECTO -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="white">
-            <defs><linearGradient id="a" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#37aee2"/><stop offset="1" stop-color="#1e96c8"/></linearGradient><linearGradient id="b" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#eff7fc"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><circle cx="120" cy="120" r="120" fill="url(#a)"/><path fill="url(#b)" d="M98 175c-3.888 0-3.227-1.468-4.568-5.17L82 132.207 170 80"/><path fill="#d2eafa" d="M98 175c3 0 4.325-1.372 6-3l16-15.558-19.958-12.035"/><path fill="url(#b)" d="M100.04 144.41l48.36 35.729c5.519 3.045 9.501 1.468 10.876-5.123l19.685-92.763c2.015-8.08-3.08-11.746-8.36-9.349l-115.59 44.572c-7.89 3.165-7.843 7.566-1.438 9.528l29.663 9.259 68.673-43.325c3.242-1.965 6.218-.91 3.775 1.26L100.04 144.41z"/>
+            <defs><linearGradient id="float_tg_a" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#37aee2"/><stop offset="1" stop-color="#1e96c8"/></linearGradient><linearGradient id="float_tg_b" x1=".667" x2=".417" y1=".167" y2=".75"><stop offset="0" stop-color="#eff7fc"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><circle cx="120" cy="120" r="120" fill="url(#float_tg_a)"/><path fill="url(#float_tg_b)" d="M98 175c-3.888 0-3.227-1.468-4.568-5.17L82 132.207 170 80"/><path fill="#d2eafa" d="M98 175c3 0 4.325-1.372 6-3l16-15.558-19.958-12.035"/><path fill="url(#float_tg_b)" d="M100.04 144.41l48.36 35.729c5.519 3.045 9.501 1.468 10.876-5.123l19.685-92.763c2.015-8.08-3.08-11.746-8.36-9.349l-115.59 44.572c-7.89 3.165-7.843 7.566-1.438 9.528l29.663 9.259 68.673-43.325c3.242-1.965 6.218-.91 3.775 1.26L100.04 144.41z"/>
         </svg>
         <span class="floating-tooltip">¡Escríbeme en Telegram!</span>
     </a>
